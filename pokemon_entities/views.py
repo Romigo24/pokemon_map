@@ -35,7 +35,7 @@ def show_all_pokemons(request):
     folium_map = folium.Map(location=MOSCOW_CENTER, zoom_start=12)
 
     for pokemon_entity in pokemons_enties:
-        pokemon = pokemon_entity.pokemon.title
+        pokemon = pokemon_entity.pokemon.title_ru
         if (pokemon_entity.appear_at <= timezone.now()) and (pokemon_entity.disappear_at >= timezone.now()):
             try:
                 add_pokemon(
@@ -53,7 +53,7 @@ def show_all_pokemons(request):
             pokemons_on_page.append({
                 'pokemon_id': pokemon.id,
                 'img_url': pokemon.images.url,
-                'title_ru': pokemon.title
+                'title_ru': pokemon.title_ru
             })
         except ValueError:
             continue
@@ -79,7 +79,9 @@ def show_pokemon(request, pokemon_id):
 
         pokemon_info = {
             'img_url': request.build_absolute_uri(pokemon.images.url),
-            'title_ru': pokemon.title,
+            'title_ru': pokemon.title_ru,
+            'title_en': pokemon.title_en,
+            'title_jp': pokemon.title_jp,
             'description': pokemon.description
         }
         
