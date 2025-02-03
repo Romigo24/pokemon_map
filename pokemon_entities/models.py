@@ -16,8 +16,11 @@ class Pokemon(models.Model):
                                 max_length=200,
                                 verbose_name='имя покемона на японском'
                                 )
-    images = models.ImageField(blank=True, null=True)
-    description = models.TextField()
+    images = models.ImageField(blank=True,
+                               null=True,
+                               verbose_name='изображение покемона'
+                               )
+    description = models.TextField(verbose_name='описание')
     previous_evolution = models.ForeignKey('self',
                                            on_delete=models.CASCADE,
                                            null=True, blank=True,
