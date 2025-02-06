@@ -19,7 +19,7 @@ class Pokemon(models.Model):
                                upload_to='pocemons_images/',
                                verbose_name='изображение покемона'
                                )
-    description = models.TextField(verbose_name='описание')
+    description = models.TextField(null=True, blank=True, verbose_name='описание')
     previous_evolution = models.ForeignKey('self',
                                            on_delete=models.CASCADE,
                                            null=True, blank=True,
@@ -45,8 +45,8 @@ class PokemonEntity(models.Model):
                                         null=True,
                                         verbose_name='дата и время исчезновения'
                                         )
-    level = models.PositiveIntegerField(default=1, verbose_name="Уровень")
-    health = models.PositiveIntegerField(default=1, verbose_name="Здоровье")
-    strength = models.PositiveIntegerField(default=1, verbose_name="Атака")
-    defence = models.PositiveIntegerField(default=1, verbose_name="Защита")
-    stamina = models.PositiveIntegerField(default=1, verbose_name="Выносливость")
+    level = models.PositiveIntegerField(null=True, blank=True, verbose_name="Уровень")
+    health = models.PositiveIntegerField(null=True, blank=True, verbose_name="Здоровье")
+    strength = models.PositiveIntegerField(null=True, blank=True, verbose_name="Атака")
+    defence = models.PositiveIntegerField(null=True, blank=True, verbose_name="Защита")
+    stamina = models.PositiveIntegerField(null=True, blank=True, verbose_name="Выносливость")
