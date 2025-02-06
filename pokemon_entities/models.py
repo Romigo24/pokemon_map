@@ -19,7 +19,7 @@ class Pokemon(models.Model):
                                upload_to='pocemons_images/',
                                verbose_name='изображение покемона'
                                )
-    description = models.TextField(null=True, blank=True, verbose_name='описание')
+    description = models.TextField(blank=True, verbose_name='описание')
     previous_evolution = models.ForeignKey('self',
                                            on_delete=models.CASCADE,
                                            null=True, blank=True,
